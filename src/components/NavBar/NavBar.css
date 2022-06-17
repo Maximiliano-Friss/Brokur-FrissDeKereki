@@ -1,0 +1,62 @@
+* {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: ParalucentBold;
+    src: url(../../assets/ParalucentBold.otf);
+}
+
+@font-face {
+    font-family: ParalucentBook;
+    src: url(../../assets/ParalucentBook.ttf);
+}
+
+nav {
+    height: 3rem;
+    background-color: #00092D;
+    color: #F5F2F8;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.nav-brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'ParalucentBold';
+}
+
+.nav-brand img {
+    padding-left: 2rem;
+    margin-right: 2rem;
+    width: 2rem;
+}
+
+.nav-brand h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'ParalucentBook';
+}
+
+nav ul li {
+    list-style-type: none;
+    font-size: 0.8rem;
+}
+
+nav ul li a {
+    color: #F5F2F8;
+    text-decoration: none;
+    transition: color 1s;
+}
+
+nav ul li a:hover{
+    color: #4820E4;
+}
