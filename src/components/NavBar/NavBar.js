@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from "../../assets/logoBrokur.png"
+import CartWidget from './CartWidget'
 import "./NavBar.css"
 
 const NavBar = () => {
@@ -11,11 +12,14 @@ const NavBar = () => {
                 </a>
                 <h1>Brôkur</h1>
             </div>
-            <ul>
-                <li><a href="../../public/index.html">Inicio</a></li>
-                <li><a href="../../public/pages/productos.html">Productos</a></li>
-                <li><a href="../../public/pages/contacto.html">Contacto</a></li>
-            </ul>
+            <div className='nav-right'>
+                <ul>
+                    <li><a href="../../public/index.html">Inicio</a></li>
+                    <li><a href="../../public/pages/productos.html">Productos</a></li>
+                    <li><a href="../../public/pages/contacto.html">Contacto</a></li>
+                </ul>
+                <CartWidget />
+            </div>
         </nav>
     )
 }
