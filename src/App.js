@@ -7,7 +7,7 @@ const App = () => {
     return (
         <>
             <NavBar />
-            <ItemListContainer message='Hello World!'/>
+            <ItemListContainer message='Catálogo de productos'/>
         </>
     );
 }

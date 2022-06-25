@@ -3,10 +3,18 @@ import ItemCount from './ItemCount'
 import "./ItemListContainer.css"
 
 const ItemListContainer = ({message}) => {
-    return (
+    
+    const onAdd = () => {
+        alert('Tus productos se agregaron al carrito con éxito')
+    }
+
+    return (        
+
         <>
             <h2>{message}</h2>
-            <ItemCount initial={0} stock={5} />
+            <div className='item-list-container'>
+                <ItemCount initial={0} stock={5} onAdd={onAdd}/>
+            </div>
         </>
         )
 }
