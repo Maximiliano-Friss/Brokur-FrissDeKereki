@@ -2,11 +2,14 @@ import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import "./ItemListContainer.css"
 import GridLoader from 'react-spinners/GridLoader'
+import ivaldiImage from '../../assets/Ivaldi.png'
+import freyaImage from '../../assets/Freya.png'
+import skadiImage from '../../assets/Skadi.png'
 
 const productos = [
-    {id:0, title: 'Ivaldi', description:'Laberinto', price: 390, pictureURL: './assets/Ivaldi.png'},
-    {id:1, title: 'Freya', description:'Caja', price: 350, pictureURL: '../../assets/Freya.png'},
-    {id:2, title: 'Skadi', description:'Puzzle', price: 450, pictureURL: '../../assets/Skadi.png'},
+    {id:0, title: 'Ivaldi', description:'Laberinto', price: 390, pictureURL: ivaldiImage},
+    {id:1, title: 'Freya', description:'Caja', price: 350, pictureURL: freyaImage},
+    {id:2, title: 'Skadi', description:'Puzzle', price: 450, pictureURL: skadiImage},
 ]
 
 const promesa = new Promise ((res,rej) => {
@@ -31,14 +34,14 @@ const ItemListContainer = ({message}) => {
     }, [])
 
     return (        
-        <>
-            {loading? <GridLoader /> :
+        <div className='flex justify-center flex-col'>
+            {loading? <GridLoader color={'#Ef5818'} size={40}  /> :
             <>
                 <h2>{message}</h2>
                 <ItemList items={toys} />
             </>
             }
-        </>
+        </div>
     )
 }
 
