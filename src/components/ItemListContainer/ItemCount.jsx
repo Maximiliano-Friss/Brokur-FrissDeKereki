@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import "./ItemListContainer.css"
 
 const ItemCount = ({initial, stock, onAdd}) => {
@@ -12,15 +12,14 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     return (
-        <div className='item-card'>
-            <h3>Juego 1</h3>
-            <h2>{contador}</h2>
+        <>
+            <h4>{contador}</h4>
             <div className='item-card-buttons'>
-                <button className='button-amount' onClick={handlerClickSubstract}>-</button>
-                <button className='button-onAdd' disabled={contador===0} onClick={onAdd}>Agregar al Carrito</button>
-                <button className='button-amount' onClick={handlerClickAdd}>+</button>
+                <button className='button-amount rounded-full' onClick={handlerClickSubstract}>-</button>
+                <button className='button-onAdd rounded-full' disabled={contador===0} onClick={onAdd}>Agregar al Carrito</button>
+                <button className='button-amount rounded-full' onClick={handlerClickAdd}>+</button>
             </div>
-        </div>
+        </>
     )
 }
 

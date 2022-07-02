@@ -11,6 +11,7 @@ h2 {
 }
 
 .item-card {
+    border: solid 3px #00092D;
     text-align: center;
     display: flex;
     flex-flow: column nowrap;
@@ -31,7 +32,6 @@ h2 {
 .button-amount {
     background-color: #00092D;
     color: #F5F2F8;
-    border-radius: 1rem;
     width: 2rem;
     transition: background-color 400ms;
 }
@@ -44,7 +44,6 @@ h2 {
 .button-onAdd {
     background-color: #00092D;
     color: #F5F2F8;
-    border-radius: 0.5rem;
     width: 10rem;
     transition: background-color 500ms;
 }
