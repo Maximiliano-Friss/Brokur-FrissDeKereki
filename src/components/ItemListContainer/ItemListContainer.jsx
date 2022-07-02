@@ -35,7 +35,7 @@ const ItemListContainer = ({message}) => {
 
     return (        
         <div className='flex justify-center flex-col'>
-            {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#Ef5818'} size={40} /></div> :
+            {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
             <>
                 <h2>{message}</h2>
                 <ItemList items={toys} />
