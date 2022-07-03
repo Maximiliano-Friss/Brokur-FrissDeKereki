@@ -1,0 +1,20 @@
+.item-detail-container {
+    border: solid 2px #00166e;
+}
+
+img {
+    padding: 5%;
+    border-radius: 10%;
+}
+
+#h2-title {
+    margin-top: 1rem;
+}
+#h3-price {
+    font-weight: bold;
+    margin-top: 50%;
+}
+
+#h4-description {
+    margin-top: 5%;
+}

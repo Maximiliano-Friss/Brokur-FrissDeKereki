@@ -1,8 +1,7 @@
-import {useEffect, useState} from 'react'
-import ItemList from './ItemList'
-import "./ItemListContainer.css"
+import {useState, useEffect} from 'react'
+import ItemDetail from './ItemDetail.jsx'
 import GridLoader from 'react-spinners/GridLoader'
-
+import './ItemDetailContainer.css'
 const productos = JSON.parse(localStorage.getItem('productList'))
 
 const promesa = new Promise ((res,rej) => {
@@ -12,30 +11,27 @@ const promesa = new Promise ((res,rej) => {
     }, 2000);
 })
 
-const ItemListContainer = ({message}) => {
+const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false)
-    const [toys, setToys] = useState([]);
+    const [pickItem, setPickItem] = useState([]);
 
     useEffect(() => {
         setLoading(true);
         promesa.then((data) => {
-            setToys(data);
+            setPickItem(data[0]);
             setLoading(false);
         }).catch(() => {
             alert('Algo salió mal')
         })
     }, [])
 
-    return (        
-        <div className='flex justify-center flex-col'>
+    return (
+        <div className="mx-auto w-3/4 mt-5 item-detail-container">
             {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
-            <>
-                <h2>{message}</h2>
-                <ItemList items={toys} />
-            </>
+            <ItemDetail item={pickItem} />
             }
         </div>
     )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer
