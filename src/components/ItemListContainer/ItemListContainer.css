@@ -20,6 +20,7 @@ h2 {
 }
 
 .item-card-buttons{
+    align-self: flex-end;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-evenly;

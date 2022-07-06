@@ -2,33 +2,36 @@ import {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail.jsx'
 import GridLoader from 'react-spinners/GridLoader'
 import './ItemDetailContainer.css'
-const productos = JSON.parse(localStorage.getItem('productList'))
-
-const promesa = new Promise ((res,rej) => {
-
-    setTimeout(() => {
-        res(productos);
-    }, 2000);
-})
 
 const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false)
-    const [pickItem, setPickItem] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState([]);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         setLoading(true);
-        promesa.then((data) => {
-            setPickItem(data[0]);
-            setLoading(false);
-        }).catch(() => {
-            alert('Algo salió mal')
-        })
+        const getOneProduct = async() => {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products/15')
+                const data = await response.json();
+                setSelectedProduct(data);
+            }
+            catch (err) {
+                setError(true);
+                alert(err);
+            }
+            finally {
+                setLoading(false);
+            }
+        }
+        getOneProduct();
     }, [])
 
     return (
         <div className="mx-auto w-3/4 mt-5 item-detail-container">
             {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
-            <ItemDetail item={pickItem} />
+            error ? <p>Ha ocurrido un error</p> : //CAMBIARLO POR COMPONENTE QUE MUESTRE ERROR
+            <ItemDetail selectedProduct={selectedProduct} />
             }
         </div>
     )
