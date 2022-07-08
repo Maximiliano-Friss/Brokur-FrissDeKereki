@@ -1,24 +1,42 @@
 import React from 'react'
 import logo from "../../assets/logoBrokur.png"
 import CartWidget from './CartWidget'
+import {Link, NavLink} from 'react-router-dom'
 import "./NavBar.css"
+import { useEffect, useState } from 'react'
 
 const NavBar = () => {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const getCategories = async() => {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products/categories');
+                const data = await response.json();
+                setCategories(data);
+            }
+            catch (err) {
+                alert(err);
+            }
+        }
+        getCategories();
+    }, [])
+
     return (
         <nav>
             <div className='nav-brand'>
-                <a href="../../../public/index.html">
+                <Link to="/">
                     <img src={logo} alt="Logo Brôkur" />   
-                </a>
-                <h1>Brôkur</h1>
+                </Link>
+                <Link to='/'><h1>Brôkur</h1></Link>
+                
             </div>
             <div className='nav-right'>
                 <ul>
-                    <li><a href="../../public/index.html">Inicio</a></li>
-                    <li><a href="../../public/pages/productos.html">Productos</a></li>
-                    <li><a href="../../public/pages/contacto.html">Contacto</a></li>
+                    {categories.map((category, index) => <NavLink key={index} to='/'{category} >{category} </NavLink> )}
                 </ul>
-                <CartWidget />
+                <Link to='/cart'><CartWidget /></Link>
+                
             </div>
         </nav>
     )
