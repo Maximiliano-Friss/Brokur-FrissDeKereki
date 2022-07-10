@@ -14,7 +14,7 @@ const Item = ({productTitle, productPrice, productImage, productDescription, pro
             <img className='w-3/5 rounded-lg' src={productImage} alt={productTitle}></img>
             <h4>${productPrice}</h4>
             <h5 className='italic mb-5'>{productDescription}</h5>
-            <Link to='/:productName'><ItemDetailContainer productId={productId}/>Ver más información</Link>
+            {/* <Link key={productId} to={productId}><ItemDetailContainer />Ver más información</Link> */}
             <ItemCount initial={0} stock={5} onAdd={onAdd} />
         </div>
     )
