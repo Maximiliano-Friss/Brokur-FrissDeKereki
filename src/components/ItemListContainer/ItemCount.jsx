@@ -17,7 +17,9 @@ const ItemCount = ({initial, stock, onAdd}) => {
             <div className='item-card-buttons'>
                 <button className='button-amount rounded-full' onClick={handlerClickSubstract}>-</button>
                 <button className='button-onAdd rounded-full' disabled={contador===0} onClick={onAdd}>Agregar al Carrito</button>
-                <button className='button-amount rounded-full' onClick={handlerClickAdd}>+</button>
+                <button className='button-amount rounded-full' onClick={handlerClickAdd}>
+                    <p>+</p>
+                    </button>
             </div>
         </>
     )

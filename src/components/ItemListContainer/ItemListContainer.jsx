@@ -2,17 +2,22 @@ import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import "./ItemListContainer.css"
 import GridLoader from 'react-spinners/GridLoader'
+import { useParams } from 'react-router-dom'
 
 const ItemListContainer = ({message}) => {
     const [loading, setLoading] = useState(false)
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
+    const {categoryType} = useParams();
+    const URL = categoryType
+    ? `https://fakestoreapi.com/products/category/${categoryType}`
+    : 'https://fakestoreapi.com/products';
 
     useEffect(() => {
         setLoading(true);
         const getProducts = async() => {
             try {
-                const response = await fetch('https://fakestoreapi.com/products?limit=5')
+                const response = await fetch(URL)
                 const data = await response.json();
                 setProducts(data);
             }
@@ -25,7 +30,7 @@ const ItemListContainer = ({message}) => {
             }
         }
         getProducts();
-    }, [])
+    }, [categoryType, URL])
 
     return (        
         <div className='flex justify-center flex-col'>

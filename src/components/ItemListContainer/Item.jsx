@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import ItemCount from './ItemCount'
 import "./ItemListContainer.css"
 
-const Item = ({productTitle, productPrice, productImage, productDescription}) => {
+const Item = ({productTitle, productPrice, productImage, productDescription, productId}) => {
     
     const onAdd = () => {
         alert('Tus productos se agregaron al carrito con éxito')
@@ -12,6 +14,7 @@ const Item = ({productTitle, productPrice, productImage, productDescription}) =>
             <img className='w-3/5 rounded-lg' src={productImage} alt={productTitle}></img>
             <h4>${productPrice}</h4>
             <h5 className='italic mb-5'>{productDescription}</h5>
+            <Link to='/:productName'><ItemDetailContainer productId={productId}/>Ver más información</Link>
             <ItemCount initial={0} stock={5} onAdd={onAdd} />
         </div>
     )

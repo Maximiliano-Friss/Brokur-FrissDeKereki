@@ -33,7 +33,10 @@ const NavBar = () => {
             </div>
             <div className='nav-right'>
                 <ul>
-                    {categories.map((category, index) => <NavLink key={index} to='/'{category} >{category} </NavLink> )}
+                    {categories.map((category, index) => (
+                        <li>
+                            <NavLink key={index} to={category} >{category} </NavLink>
+                        </li>) )}
                 </ul>
                 <Link to='/cart'><CartWidget /></Link>
                 
