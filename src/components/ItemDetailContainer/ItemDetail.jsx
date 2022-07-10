@@ -8,10 +8,12 @@ const ItemDetail = ({selectedProduct}) => {
     
     return (
         <div className="grid grid-cols-2 gap-5">
-            <img className="w-50" src={selectedProduct.image} alt={selectedProduct.title} />
-            <div className="text-center">
-                <h2 id='h2-title'>{selectedProduct.title}</h2>
+            <div className="text-center flex flex-col justify-center items-center pb-5">
+                <img className="w-3/4" src={selectedProduct.image} alt={selectedProduct.title} />
                 <h3 id="h3-price">${selectedProduct.price}</h3>
+            </div>
+            <div className="text-center item-detail pb-5">
+                <h2 id='h2-title'>{selectedProduct.title}</h2>
                 <h4 id='h4-description'>{selectedProduct.description}</h4>
                 <ItemCount initial={0} stock={5} onAdd={onAdd} ></ItemCount>
             </div>

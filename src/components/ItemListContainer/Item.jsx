@@ -8,13 +8,21 @@ const Item = ({productTitle, productPrice, productImage, productDescription, pro
         alert('Tus productos se agregaron al carrito con éxito')
     }
     return (
-        <div className='item-card rounded-md py-3'>
-            <h3 className='text-2xl mb-5'>{productTitle}</h3>
-            <img className='w-3/5 rounded-lg' src={productImage} alt={productTitle}></img>
-            <h4>${productPrice}</h4>
-            <h5 className='italic mb-5'>{productDescription}</h5>
-            <Link to={`/products/${productId}`}><h5>Ver más información</h5></Link>
-            <ItemCount initial={0} stock={5} onAdd={onAdd} />
+        <div className='item-card rounded-md'>
+            <div className='my-auto'>
+                <Link to={`/products/${productId}`}>
+                    <div className='flex flex-col justify-around items-center'>
+                        <div className='img-container'>
+                            <img src={productImage} alt={productTitle}></img>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+            <div className='pb-5 flex flex-col items-center'>
+                <h3 className='item-card-h3'>{productTitle}</h3>
+                <h4>${productPrice}</h4>
+                <ItemCount initial={0} stock={5} onAdd={onAdd} />
+            </div>
         </div>
     )
 }

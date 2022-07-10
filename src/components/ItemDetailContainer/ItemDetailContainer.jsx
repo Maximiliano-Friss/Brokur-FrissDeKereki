@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
     }, [productId, URL])
 
     return (
-        <div className="mx-auto w-3/4 mt-5 item-detail-container">
+        <div className="mx-auto w-3/4 mt-5 item-detail-container rounded-md">
             {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
             error ? <p>Ha ocurrido un error</p> : //CAMBIARLO LUEGO POR COMPONENTE QUE MUESTRE ERROR
             <ItemDetail selectedProduct={selectedProduct} />
