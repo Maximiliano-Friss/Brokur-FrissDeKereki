@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom'
-import ItemCount from './ItemCount'
 import "./ItemListContainer.css"
 
-const Item = ({productTitle, productPrice, productImage, productDescription, productId}) => {
+const Item = ({productTitle, productPrice, productImage, productId}) => {
     
-    const onAdd = () => {
-        alert('Tus productos se agregaron al carrito con éxito')
-    }
     return (
         <div className='item-card rounded-md'>
             <div className='my-auto'>
@@ -21,7 +17,6 @@ const Item = ({productTitle, productPrice, productImage, productDescription, pro
             <div className='pb-5 flex flex-col items-center'>
                 <h3 className='item-card-h3'>{productTitle}</h3>
                 <h4>${productPrice}</h4>
-                <ItemCount initial={0} stock={5} onAdd={onAdd} />
             </div>
         </div>
     )

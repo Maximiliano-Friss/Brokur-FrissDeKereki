@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail.jsx'
 import GridLoader from 'react-spinners/GridLoader'
-import './ItemDetailContainer.css'
 import { useParams } from 'react-router-dom'
+import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false)

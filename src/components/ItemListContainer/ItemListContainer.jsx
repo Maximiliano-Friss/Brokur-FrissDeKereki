@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
-import "./ItemListContainer.css"
 import GridLoader from 'react-spinners/GridLoader'
 import { useParams } from 'react-router-dom'
+import "./ItemListContainer.css"
 
 const ItemListContainer = ({message}) => {
     const [loading, setLoading] = useState(false)

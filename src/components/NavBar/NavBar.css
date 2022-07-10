@@ -17,13 +17,13 @@
 nav {
     height: 3rem;
     background-color: #00092D;
-    color: #F5F2F8;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 3rem;
 }
 
 .nav-brand {
+    color: #F5F2F8;
     grid-column: 1/2;
     display: flex;
     justify-content: flex-start;
