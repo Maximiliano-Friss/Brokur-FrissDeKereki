@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState()
+    const [selectedProduct, setSelectedProduct] = useState([])
     const {productId} = useParams();
     const URL = productId
     ? `https://fakestoreapi.com/products/${productId}`
