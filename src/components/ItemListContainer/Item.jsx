@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import "./ItemListContainer.css"
+import { Link } from 'react-router-dom';
+import "./ItemListContainer.css";
 
 const Item = ({productTitle, productPrice, productImage, productId}) => {
     
@@ -12,12 +12,12 @@ const Item = ({productTitle, productPrice, productImage, productId}) => {
                             <img src={productImage} alt={productTitle}></img>
                         </div>
                     </div>
+                    <div className='pb-5 flex flex-col items-center'>
+                        <h3 className='item-card-h3'>{productTitle}</h3>
+                    </div>
                 </Link>
             </div>
-            <div className='pb-5 flex flex-col items-center'>
-                <h3 className='item-card-h3'>{productTitle}</h3>
-                <h4>${productPrice}</h4>
-            </div>
+            <h4 className='text-center'>${productPrice}</h4>
         </div>
     )
 }

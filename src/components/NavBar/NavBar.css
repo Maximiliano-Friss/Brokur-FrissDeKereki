@@ -72,3 +72,13 @@ nav {
 .nav-right ul li a:hover{
     color: #4820E4;
 }
+
+.nav-cart-container p {
+    background-color: #F5F2F8;
+    border: 1px solid #F5F2F8;
+    border-radius: 50%;
+    color: #00092D;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+}

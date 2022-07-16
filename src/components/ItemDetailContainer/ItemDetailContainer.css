@@ -17,10 +17,9 @@ img {
 
 #h4-description {
     margin-top: 5%;
-    width: 80%;
     font-size:1rem;
-    text-align: center;
-    margin: 0 auto;
+    text-align: left;
+    margin: 0 1rem;
 }
 
 .item-detail{
@@ -70,4 +69,13 @@ img {
 .button-onAdd:active {
     background-color: #4820e4;
     color: #F5F2F8;
+}
+
+h5{
+    border-top: solid 5px black;
+}
+
+.item-count{
+    margin-top: 2rem;
+    color: #05093a;
 }

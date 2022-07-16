@@ -1,17 +1,20 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Link } from 'react-router-dom'
 import ItemCount from "../ItemListContainer/ItemCount"
 import "./ItemDetailContainer.css"
+import { contextoCart } from "../../context/CartContext"
 
 const ItemDetail = ({selectedProduct}) => {
+    const {addProduct} = useContext(contextoCart);
     const [addProducts, setAddProducts] = useState(true)
 
-    const onAdd = () => {
+    const onAdd = (contador) => {
         setAddProducts(false);
+        addProduct({...selectedProduct, qty: contador});
     }
     
     return (
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5 item-detail-container">
             <div className="text-center flex flex-col justify-center items-center pb-5">
                 <img className="w-3/4" src={selectedProduct.image} alt={selectedProduct.title} />
                 <h3 id="h3-price">${selectedProduct.price}</h3>

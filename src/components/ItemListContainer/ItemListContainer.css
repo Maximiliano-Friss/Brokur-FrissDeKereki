@@ -16,11 +16,14 @@ h2 {
     flex-flow: column nowrap;
     justify-content: space-between;
     width: 15rem;
-    height: 25rem;
+    height: 20rem;
     margin: 2rem;
-    border: solid 1px #00166e;
+    border: solid 3px #00166e;
+    border-bottom: solid 10px #586496;
 }
-
+.item-card-inf {
+    border-top: solid 3px #586496;
+}
 .item-card-h3{
     font-size: 0.8rem;
     width: 60%;
@@ -30,4 +33,7 @@ h2 {
 }
 img {
     width: 100%;
+}
+h4{
+    margin-bottom: 1rem;
 }

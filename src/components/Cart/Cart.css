@@ -1,0 +1,105 @@
+.cart-item-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 4rem);
+    margin: 2rem 10rem;
+}
+
+.cart-item-card-img{
+    grid-column: 1/2;
+    grid-row: 1/5;
+    border-top: solid 5px black;
+    border-bottom: solid 5px black;
+    border-left: solid 5px black;
+    border-bottom-left-radius: 10%;
+    border-top-left-radius: 10%;
+}
+.cart-item-card-img img {
+    width: 40%;
+}
+
+.cart-item-card-info{
+    padding-left: 3rem;
+    color: #F5F2F8;
+    grid-column: 2/4;
+    grid-row: 1/5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-left: solid 6px #00166e;
+    background-color: #2e3a6b;
+    filter: drop-shadow(2px 2px 4px black);
+}
+
+.btn-remove-all {
+    color: #F5F2F8;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #e01a1a;
+    width: 8rem;
+    border: solid 5px black;
+    border-style: outset;
+    margin-left: 10rem;
+}
+
+.card-item-card-info h3, h4, h5{
+    text-align: left;
+}
+
+.card-item-card-info h4{
+    font-size: 0.8rem;
+}
+
+.btn-remove-item{
+    position: absolute;
+    right: 3rem;
+    bottom: 2rem;
+    border: solid 5px black;
+    border-style: outset;
+    background-color: rgb(177, 34, 34);
+    filter: drop-shadow(2px 2px 2px black);
+    width: 10rem;
+}
+
+span{
+    color: #05093a;
+    font-weight: bold;
+}
+
+.info-h3{
+    text-align: left;
+    color: #05093a;
+    font-size: 1.2rem;
+    margin-right: 3rem;
+    font-weight: bold;
+}
+
+.cart-item-list{
+    text-align: left;
+}
+
+.total-box{
+    position: sticky;
+    float: right;
+    right: 2rem;
+    width: 7rem;
+    height: 4rem;
+    top: 17rem;
+    background-color: #5d6eb1;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 4px black;
+    filter: drop-shadow(5px 5px 5px black);
+}
+
+.total-box h3 {
+    font-weight: bold;
+}
+
+.cart-item-card-info h5{
+    border: none;
+}

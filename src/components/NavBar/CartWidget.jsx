@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { contextoCart } from '../../context/CartContext'
 import "./NavBar.css"
 
 const CartWidget = () => {
+    const {quantity} = useContext(contextoCart);
+
     return (
-        <ShoppingCartIcon sx={{color:'#F5F2F8'}} />   
+        <div className='flex flex-row'>
+            <ShoppingCartIcon sx={{color:'#F5F2F8'}} />   
+            {quantity !== 0 &&
+            <div className='nav-cart-container flex justify-center items-center'>
+                <p>{quantity}</p>
+            </div>
+            }
+        </div>
     )
 }
 
