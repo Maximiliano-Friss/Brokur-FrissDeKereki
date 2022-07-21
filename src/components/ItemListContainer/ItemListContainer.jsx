@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import GridLoader from 'react-spinners/GridLoader'
 import { useParams } from 'react-router-dom'
+import { db } from '../../firebase/firebase'
+import {getDocs, collection, query, where} from 'firebase/firestore'
 import "./ItemListContainer.css"
 
 const ItemListContainer = ({message}) => {
@@ -9,27 +11,44 @@ const ItemListContainer = ({message}) => {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
     const {categoryType} = useParams();
-    const URL = categoryType
-    ? `https://fakestoreapi.com/products/category/${categoryType}`
-    : 'https://fakestoreapi.com/products';
 
     useEffect(() => {
         setLoading(true);
-        const getProducts = async() => {
-            try {
-                const response = await fetch(URL)
-                const data = await response.json();
-                setProducts(data);
-            }
-            catch (err) {
-                setError(true);
-                alert(err);
-            }
-            finally {
-                setLoading(false);
-            }
-        }
-        getProducts();
+        const productCollection = collection(db, 'products');
+        const q = query(productCollection, where('productCategory', '==', {categoryType}))
+        getDocs(categoryType ? q : productCollection)
+        .then(result => {
+            const productList = result.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    ...doc.data(),
+                }
+            })
+            console.log(productList)
+        })
+        .catch (err => {
+            setError(true);
+            alert(err);
+        })
+        .finally(() => setLoading(false));
+
+
+
+    //     const getProducts = async() => {
+    //         try {
+    //             const response = await fetch(URL)
+    //             const data = await response.json();
+    //             setProducts(data);
+    //         }
+    //         catch (err) {
+    //             setError(true);
+    //             alert(err);
+    //         }
+    //         finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     getProducts();
     }, [categoryType, URL])
 
     return (        
