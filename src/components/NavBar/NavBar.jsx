@@ -40,7 +40,7 @@ const NavBar = () => {
             <div className='nav-right'>
                 <ul>
                     {categories.map((category) => (
-                        <li key={category.index} >
+                        <li key={category.id} >
                             <NavLink to={`/category/${category.category}`} >{category.category} </NavLink>
                         </li>) )}
                 </ul>

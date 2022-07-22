@@ -19,7 +19,7 @@ const CartItemList = () => {
             <div className='cart-item-list'>
                 <div className='total-box rounded-2xl'>
                     <h3>TOTAL:</h3>
-                    <p>${total}</p>
+                    <p>${Number(total).toFixed(2)}</p>
                 </div>
                 {products.map((product) => <CartItem key={product.id} productId={product.id} productTitle={product.title} productPrice={product.price} productImage={product.image} productQuantity={product.qty} removeFromCart={removeFromCart}/>)}
                 <button className='btn-remove-all' onClick={removeAll}>Borrar todo</button>
