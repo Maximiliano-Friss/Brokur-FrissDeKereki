@@ -15,7 +15,7 @@ const ItemListContainer = ({message}) => {
     useEffect(() => {
         setLoading(true);
         const productCollection = collection(db, 'products');
-        const q = query(productCollection, where('productCategory', '==', `${categoryType}`));
+        const q = query(productCollection, where('category', '==', `${categoryType}`));
         getDocs(categoryType ? q : productCollection)
         .then(result => {
             const productList = result.docs.map(doc => {

@@ -1,26 +1,32 @@
 import React from 'react'
 import logo from "../../assets/logoBrokur.png"
 import CartWidget from './CartWidget'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink, useParams} from 'react-router-dom'
 import "./NavBar.css"
 import { useEffect, useState } from 'react'
+import { db } from '../../firebase/firebase'
+import {getDocs, collection} from 'firebase/firestore'
 
 const NavBar = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        const getCategories = async() => {
-            try {
-                const response = await fetch('https://fakestoreapi.com/products/categories');
-                const data = await response.json();
-                setCategories(data);
-            }
-            catch (err) {
-                alert(err);
-            }
-        }
-        getCategories();
-    }, [])
+        const categoryCollection = collection(db, 'categories');
+        getDocs(categoryCollection)
+        .then(result => {
+            const categoryList = result.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    ...doc.data(),
+                }
+            })
+            setCategories(categoryList);
+        })
+        .catch (err => {
+            console.log(err);
+        })
+    }, []);
+
 
     return (
         <nav>
@@ -33,9 +39,9 @@ const NavBar = () => {
             </div>
             <div className='nav-right'>
                 <ul>
-                    {categories.map((category, index) => (
-                        <li key={index} >
-                            <NavLink to={`/category/${category}`} >{category} </NavLink>
+                    {categories.map((category) => (
+                        <li key={category.index} >
+                            <NavLink to={`/category/${category.category}`} >{category.category} </NavLink>
                         </li>) )}
                 </ul>
                 <Link to='/cart'><CartWidget /></Link>
