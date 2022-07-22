@@ -23,7 +23,7 @@ const ItemDetail = ({selectedProduct}) => {
                 <h2 id='h2-title'>{selectedProduct.title}</h2>
                 <h4 id='h4-description'>{selectedProduct.description}</h4>
                 {addProducts ?
-                <ItemCount initial={0} stock={5} onAdd={onAdd} ></ItemCount>
+                <ItemCount initial={0} stock={selectedProduct.stock} onAdd={onAdd} ></ItemCount>
                 : <button className="button-finalizar rounded-full mx-auto"><Link to='/cart'>Finalizar compra</Link></button>}
             </div>
         </div>

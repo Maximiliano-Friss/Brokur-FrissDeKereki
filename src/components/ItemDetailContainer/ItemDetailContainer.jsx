@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import ItemDetail from './ItemDetail.jsx'
 import GridLoader from 'react-spinners/GridLoader'
 import { useParams } from 'react-router-dom'
+import {db} from '../../firebase/firebase';
+import {getDoc, collection, doc} from 'firebase/firestore'
 import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
@@ -9,28 +11,25 @@ const ItemDetailContainer = () => {
     const [error, setError] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState([])
     const {productId} = useParams();
-    const URL = productId
-    ? `https://fakestoreapi.com/products/${productId}`
-    : 'https://fakestoreapi.com/products';
-
+    
     useEffect(() => {
         setLoading(true);
-        const getSelectedProduct = async() => {
-            try {
-                const response = await fetch(URL)
-                const data = await response.json();
-                setSelectedProduct(data);
+        const productCollection = collection(db, 'products');
+        const refDoc = doc(productCollection, productId);
+        getDoc(refDoc)
+        .then(result => {
+            const product = {
+                id: result.id,
+                ...result.data(),
             }
-            catch (err) {
-                setError(true);
-                alert(err);
-            }
-            finally {
-                setLoading(false);
-            }
-        }
-        getSelectedProduct();
-    }, [productId, URL])
+            setSelectedProduct(product);
+        })
+        .catch (err => {
+            setError(true);
+            console.log(err);
+        })
+        .finally(() => setLoading(false));
+    }, [productId]);
 
     return (
         <div className="mx-auto w-3/4 mt-5 item-detail-container rounded-md">

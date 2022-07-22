@@ -15,7 +15,7 @@ const ItemListContainer = ({message}) => {
     useEffect(() => {
         setLoading(true);
         const productCollection = collection(db, 'products');
-        const q = query(productCollection, where('productCategory', '==', {categoryType}))
+        const q = query(productCollection, where('productCategory', '==', `${categoryType}`));
         getDocs(categoryType ? q : productCollection)
         .then(result => {
             const productList = result.docs.map(doc => {
@@ -24,32 +24,14 @@ const ItemListContainer = ({message}) => {
                     ...doc.data(),
                 }
             })
-            console.log(productList)
+            setProducts(productList);
         })
         .catch (err => {
             setError(true);
-            alert(err);
+            console.log(err);
         })
         .finally(() => setLoading(false));
-
-
-
-    //     const getProducts = async() => {
-    //         try {
-    //             const response = await fetch(URL)
-    //             const data = await response.json();
-    //             setProducts(data);
-    //         }
-    //         catch (err) {
-    //             setError(true);
-    //             alert(err);
-    //         }
-    //         finally {
-    //             setLoading(false);
-    //         }
-    //     }
-    //     getProducts();
-    }, [categoryType, URL])
+    }, [categoryType]);
 
     return (        
         <div className='flex justify-center flex-col'>
