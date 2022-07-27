@@ -1,7 +1,7 @@
 import CartItem from './CartItem.jsx'
 import { useContext } from 'react'
 import { contextoCart } from '../../context/CartContext'
-import './Cart.css'
+import { Link } from 'react-router-dom'
 
 const CartItemList = () => {
     const {products} = useContext(contextoCart);
@@ -15,6 +15,7 @@ const CartItemList = () => {
     const removeAll = () => {
         clear();
     }
+
     return (
             <div className='cart-item-list'>
                 <div className='total-box rounded-2xl'>
@@ -22,7 +23,10 @@ const CartItemList = () => {
                     <p>${Number(total).toFixed(2)}</p>
                 </div>
                 {products.map((product) => <CartItem key={product.id} productId={product.id} productTitle={product.title} productPrice={product.price} productImage={product.image} productQuantity={product.qty} removeFromCart={removeFromCart}/>)}
-                <button className='btn-remove-all' onClick={removeAll}>Borrar todo</button>
+                <div className='mb-5'>
+                    <button className='btn-remove-all' onClick={removeAll}>Delete all</button>
+                    <button className='btn-enter-user-data'><Link to='/userForm'>Continue</Link></button>
+                </div>
             </div>
     )
 }

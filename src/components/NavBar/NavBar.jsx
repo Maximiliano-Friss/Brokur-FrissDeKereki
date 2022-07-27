@@ -2,7 +2,6 @@ import React from 'react'
 import logo from "../../assets/logoBrokur.png"
 import CartWidget from './CartWidget'
 import {Link, NavLink, useParams} from 'react-router-dom'
-import "./NavBar.css"
 import { useEffect, useState } from 'react'
 import { db } from '../../firebase/firebase'
 import {getDocs, collection} from 'firebase/firestore'

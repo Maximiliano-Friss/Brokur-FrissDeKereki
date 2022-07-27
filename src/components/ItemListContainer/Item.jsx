@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import "./ItemListContainer.css";
 
 const Item = ({productTitle, productPrice, productImage, productId}) => {
     

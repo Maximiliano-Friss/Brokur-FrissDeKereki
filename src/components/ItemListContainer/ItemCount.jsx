@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import "./ItemListContainer.css"
 
 const ItemCount = ({initial, stock, onAdd}) => {
 
@@ -20,7 +19,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
             <h5 className='text-center font-bold text-4xl pt-5 mb-5'>{contador}</h5>
             <div className='item-card-buttons'>
                 <button className='button-amount rounded-full' onClick={handlerClickSubstract}>-</button>
-                <button className='button-onAdd rounded-full' disabled={contador===0} onClick={handlerClickAddtoCart}>Agregar al Carrito</button>
+                <button className='button-onAdd rounded-full' disabled={contador===0} onClick={handlerClickAddtoCart}>Add to Cart</button>
                 <button className='button-amount rounded-full' onClick={handlerClickAdd}>+</button>
             </div>
         </div>

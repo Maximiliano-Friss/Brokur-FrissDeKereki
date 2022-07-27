@@ -4,7 +4,6 @@ import GridLoader from 'react-spinners/GridLoader'
 import { useParams } from 'react-router-dom'
 import { db } from '../../firebase/firebase'
 import {getDocs, collection, query, where} from 'firebase/firestore'
-import "./ItemListContainer.css"
 
 const ItemListContainer = ({message}) => {
     const [loading, setLoading] = useState(false)
@@ -36,9 +35,9 @@ const ItemListContainer = ({message}) => {
     return (        
         <div className='flex justify-center flex-col'>
             {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
-            error ? <p>Ha ocurrido un error</p> : //CAMBIARLO POR COMPONENTE QUE MUESTRE ERROR
+            error ? <p>Something went wrong</p> : //CAMBIARLO POR COMPONENTE QUE MUESTRE ERROR
             <>
-                <h2>{message}</h2>
+                {categoryType? <h2>{categoryType}</h2>:<h2>{message}</h2>}
                 <ItemList products={products} />
             </>
             }
