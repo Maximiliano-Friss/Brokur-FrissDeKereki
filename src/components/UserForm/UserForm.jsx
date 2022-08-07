@@ -60,17 +60,17 @@ const UserForm = () => {
                     <h2>Please, fill the blanks with your card information.</h2>
                     <form className="flex flex-col">
                         <label htmlFor="cardName">Name on card:</label>
-                        <input type="text" required onChange={getCardName} id="cardName" name="cardName"/>
+                        <input value={cardName} type="text" required onChange={getCardName} id="cardName" name="cardName"/>
                         <label htmlFor="cardNumber">Card number:</label>
-                        <input type="tel" inputmode="numeric" pattern="[0-9]" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" onChange={getCardNumber} id="cardNumber" name="cardNumber"/>
+                        <input value={cardNumber} type="tel" inputmode="numeric" pattern="[0-9]" maxlength="16" placeholder="xxxx xxxx xxxx xxxx" onChange={getCardNumber} id="cardNumber" name="cardNumber"/>
                         <div className="flex flex-row mt-5 justify-evenly">
                             <div className="w-1/2 flex flex-col form-credit mx-1">
                                 <label htmlFor="CardExpiration">Expiration Date:</label>
-                                <input type="month" onChange={getCardExpiration} id="CardExpiration" name="CardExpiration" min="2022-08"/>
+                                <input value={cardExpiration} type="month" onChange={getCardExpiration} id="CardExpiration" name="CardExpiration" min="2022-08"/>
                             </div>
                             <div className="w-1/2 flex flex-col form-credit mx-1">
                                 <label htmlFor="cardCVV">CVV:</label>
-                                <input onChange={getCardCVV} id="cardCVV" name="cardCVV" type="tel" inputmode="numeric" pattern="[0-9]" maxlength="3" placeholder="xxx"/>
+                                <input value={cardCVV} onChange={getCardCVV} id="cardCVV" name="cardCVV" type="tel" inputmode="numeric" pattern="[0-9]" maxlength="3" placeholder="xxx"/>
                             </div>
                         </div>
                         <submit className='form-submit' onClick={endPurchase}>Confirm</submit>
