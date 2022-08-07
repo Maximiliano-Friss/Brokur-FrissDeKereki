@@ -1,10 +1,18 @@
-//PRIMERA PREENTREGA DEL PROYECTO FINAL - CODERHOUSE - CURSO REACT//
+# PROYECTO FINAL - CODERHOUSE - CURSO REACT
 
-//Se conceptualiza un e-commerce desarrollado en REACT con
-un catálogo de productos provenientes de una API (https://fakestoreapi.com)
-con artículos ficticios.
+> Brokur - Tienda de juegos de mesa
 
-//Las rutas de navegación se establecen con la
-librería React Router DOM.
+Se conceptualiza un e-commerce desarrollado en **REACT** con un catálogo de juegos de mesa. Se definen cuatro categorías de juegos, dentro de las cuales el usuario puede navegar para filtrar la selección de productos:
+* Dexterity
+* Family
+* Strategy
+* Party Game
 
-//Se emplea TailwindCSS como framework para complementar los estilos.
+**Complementos**
+
+Las rutas de navegación se establecen con la
+librería **React Router DOM**.
+
+Se emplea **TailwindCSS** como framework para complementar los estilos.
+
+La base de datos conteniendo los productos, las categorías y las ventas se guarda en **Firebase**.
