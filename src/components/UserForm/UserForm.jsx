@@ -12,6 +12,7 @@ const UserForm = () => {
     const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
     const [idSale, setIdSale] = useState('');
     const [saleTotal, setSaleTotal] = useState('');
+    const [saleProducts, setSaleProducts] = useState([]);
     const saleInfo = {
         items: products,
         date: serverTimestamp(),
@@ -23,7 +24,8 @@ const UserForm = () => {
         addDoc(salesCollection, {...saleInfo, cardInfo})
         .then((result) => {
             setIdSale(result.id);
-            setSaleTotal(total)
+            setSaleTotal(total);
+            setSaleProducts(products);
         })
         setPurchaseConfirmed(true);
     }
@@ -31,7 +33,7 @@ const UserForm = () => {
     return (
             <div className='mx-auto text-center'>
                 {purchaseConfirmed ?
-                <OrderInfo idSale={idSale} total={saleTotal} products={products}/>
+                <OrderInfo idSale={idSale} total={saleTotal} products={saleProducts}/>
                 :
                 <>
                     <h2>Please, fill the blanks with your card information.</h2>

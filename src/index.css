@@ -360,16 +360,26 @@ input {
 .form-credit label{
     margin-right: 2rem;
 }
+form p {
+    color: #bb1212;
+    font-weight: bold;
+}
 .order-info-container{
     color: white;
     background-color: #00092D;
-    width: 50%;
+    width: 40%;
     border-radius: 50px;
     margin: 2rem auto;
     padding: 2rem;
 }
-
-form p {
-    color: #bb1212;
-    font-weight: bold;
+.order-info-details{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem auto;
+    background-color: #00166e59;
+}
+.order-info-img{
+    width: 5rem;
+    padding: 0;
+    margin: 1rem 0;
 }
