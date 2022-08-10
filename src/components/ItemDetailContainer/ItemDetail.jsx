@@ -1,11 +1,11 @@
-import { useState, useContext } from "react"
-import { Link } from 'react-router-dom'
-import ItemCount from "../ItemListContainer/ItemCount"
-import { contextoCart } from "../../context/CartContext"
+import { useState, useContext } from "react";
+import { Link } from 'react-router-dom';
+import ItemCount from "../ItemListContainer/ItemCount";
+import { contextoCart } from "../../context/CartContext";
 
 const ItemDetail = ({selectedProduct}) => {
     const {addProduct} = useContext(contextoCart);
-    const [addProducts, setAddProducts] = useState(true)
+    const [addProducts, setAddProducts] = useState(true);
 
     const onAdd = (contador) => {
         setAddProducts(false);

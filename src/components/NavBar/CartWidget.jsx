@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
-import { contextoCart } from '../../context/CartContext'
+import React, { useContext } from 'react';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { contextoCart } from '../../context/CartContext';
 
 const CartWidget = () => {
     const {quantity} = useContext(contextoCart);

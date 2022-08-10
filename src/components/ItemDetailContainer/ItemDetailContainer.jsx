@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react'
-import ItemDetail from './ItemDetail.jsx'
-import GridLoader from 'react-spinners/GridLoader'
-import { useParams } from 'react-router-dom'
+import {useState, useEffect} from 'react';
+import ItemDetail from './ItemDetail.jsx';
+import GridLoader from 'react-spinners/GridLoader';
+import { useParams } from 'react-router-dom';
 import {db} from '../../firebase/firebase';
-import {getDoc, collection, doc} from 'firebase/firestore'
+import {getDoc, collection, doc} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(false);

@@ -1,7 +1,6 @@
-import {useState} from 'react'
+import {useState} from 'react';
 
 const ItemCount = ({initial, stock, onAdd}) => {
-
     const [contador, setContador] = useState(initial);
     const handlerClickAdd = () => {
         setContador(prevContador => Math.min(prevContador + 1, stock))
@@ -9,7 +8,6 @@ const ItemCount = ({initial, stock, onAdd}) => {
     const handlerClickSubstract = () => {
         setContador(prevContador => Math.max(prevContador - 1, 0))
     }
-
     const handlerClickAddtoCart = () => {
         onAdd(contador);
     }

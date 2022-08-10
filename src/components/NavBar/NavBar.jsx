@@ -1,9 +1,9 @@
-import React from 'react'
-import CartWidget from './CartWidget'
-import {Link, NavLink, useParams} from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import { db } from '../../firebase/firebase'
-import {getDocs, collection} from 'firebase/firestore'
+import React from 'react';
+import CartWidget from './CartWidget';
+import {Link, NavLink, useParams} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { db } from '../../firebase/firebase';
+import {getDocs, collection} from 'firebase/firestore';
 
 const NavBar = () => {
     const [categories, setCategories] = useState([]);
@@ -25,7 +25,6 @@ const NavBar = () => {
         })
     }, []);
 
-
     return (
         <nav>
             <div className='nav-brand'>
@@ -38,12 +37,10 @@ const NavBar = () => {
             <div className='nav-right'>
                 <ul>
                     {categories.map((category) => (
-                        <li key={category.id} >
-                            <NavLink to={`/category/${category.category}`} >{category.category} </NavLink>
-                        </li>) )}
+                        <li key={category.id} ><NavLink to={`/category/${category.category}`} >{category.category} </NavLink></li>)
+                    )}
                 </ul>
                 <Link to='/cart'><CartWidget /></Link>
-                
             </div>
         </nav>
     )

@@ -1,8 +1,8 @@
-import { useState, useContext, useEffect} from "react"
-import { contextoCart } from '../../context/CartContext'
-import CartItemList from './CartItemList.jsx'
-import { Link } from "react-router-dom"
-import GridLoader from 'react-spinners/GridLoader'
+import { useState, useContext, useEffect} from "react";
+import { contextoCart } from '../../context/CartContext';
+import CartItemList from './CartItemList.jsx';
+import { Link } from "react-router-dom";
+import GridLoader from 'react-spinners/GridLoader';
 
 const Cart = () => {
     const {products} = useContext(contextoCart);

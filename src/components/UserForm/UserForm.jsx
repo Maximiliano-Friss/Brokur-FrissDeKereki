@@ -1,8 +1,8 @@
-import { useContext, useState} from "react"
-import { contextoCart } from '../../context/CartContext'
-import OrderInfo from './OrderInfo'
-import {db} from '../../firebase/firebase'
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
+import { useContext, useState} from "react";
+import { contextoCart } from '../../context/CartContext';
+import OrderInfo from './OrderInfo';
+import {db} from '../../firebase/firebase';
+import {addDoc, collection, serverTimestamp} from 'firebase/firestore';
 import { useForm } from "react-hook-form";
 
 const UserForm = () => {
