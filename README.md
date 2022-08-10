@@ -16,3 +16,5 @@ librería **React Router DOM**.
 Se emplea **TailwindCSS** como framework para complementar los estilos.
 
 La base de datos conteniendo los productos, las categorías y las ventas se guarda en **Firebase**.
+
+El formulario que recibe los datos de la tarjeta del usuario se maneja con **React Hook Forms**.

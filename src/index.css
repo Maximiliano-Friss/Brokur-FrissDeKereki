@@ -330,7 +330,7 @@ form{
     width: 50%;
     margin: 2rem auto;
     position: relative;
-    height: 20rem;
+    height: 25rem;
     border: solid 4px #00166e;
     padding: 1rem 1rem;
     text-align: left;
@@ -367,4 +367,9 @@ input {
     border-radius: 50px;
     margin: 2rem auto;
     padding: 2rem;
+}
+
+form p {
+    color: #bb1212;
+    font-weight: bold;
 }

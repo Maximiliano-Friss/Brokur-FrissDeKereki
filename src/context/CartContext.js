@@ -47,6 +47,7 @@ const CustomProvider = ({children}) => {
 
     const clear = () => {
         setProducts([]);
+        
     }
 
     const isInCart = (id) => {
