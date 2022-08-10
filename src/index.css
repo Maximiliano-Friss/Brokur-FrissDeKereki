@@ -15,12 +15,11 @@
     font-family: ParalucentBook;
     src: url(./assets/ParalucentBook.ttf);
 }
-
 body{
     font-family: ParalucentBook;
 }
-/*NAVBAR*/
 
+/*NAVBAR*/
 nav {
     height: 3rem;
     background-color: #00092D;
@@ -82,7 +81,6 @@ nav {
 }
 
 /*ITEM LIST CONTAINER*/
-
 h2 {
     text-align: center;
     font-size: 1.5rem;
@@ -142,7 +140,6 @@ h4{
 }
 
 /* ITEM DETAIL CONTAINER */
-
 .item-detail-container {
     border: solid 2px #00166e;
 }
@@ -218,7 +215,6 @@ h5{
 }
 
 /* CART */
-
 .cart-item-card {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
