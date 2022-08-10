@@ -6,9 +6,9 @@ import {db} from '../../firebase/firebase';
 import {getDoc, collection, doc} from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState([])
+    const [selectedProduct, setSelectedProduct] = useState([]);
     const {productId} = useParams();
     
     useEffect(() => {
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
     return (
         <div className="mx-auto w-3/4 mt-5 item-detail-container rounded-md">
             {loading? <div className='flex justify-center items-center h-screen'><GridLoader color={'#EF5818'} size={40} /></div> :
-            error ? <p>Something went wrong</p> : //CAMBIARLO LUEGO POR COMPONENTE QUE MUESTRE ERROR
+            error ? <p className='mx-auto my-4 w-50 text-3xl'>Oops! Something went wrong</p> :
             <ItemDetail selectedProduct={selectedProduct} />
             }
         </div>
