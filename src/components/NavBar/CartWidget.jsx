@@ -4,7 +4,7 @@ import { contextoCart } from '../../context/CartContext'
 
 const CartWidget = () => {
     const {quantity} = useContext(contextoCart);
-
+    
     return (
         <div className='flex flex-row'>
             <ShoppingCartIcon sx={{color:'#F5F2F8'}} />   

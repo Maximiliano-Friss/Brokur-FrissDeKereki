@@ -2,11 +2,14 @@ import React, {createContext, useState, useEffect} from "react"
 
 export const contextoCart = createContext();
 const {Provider} = contextoCart;
+const productFromLocalStorage = JSON.parse(localStorage.getItem("products") || '[]')
+const quantityFromLocalStorage = JSON.parse(localStorage.getItem("quantity") || 0)
+const totalFromLocalStorage = JSON.parse(localStorage.getItem("total") || 0)
 
 const CustomProvider = ({children}) => {
-    const [products, setProducts] = useState([]);
-    const [quantity, setQuantity] = useState(0);
-    const [total, setTotal] = useState(0);
+    const [products, setProducts] = useState(productFromLocalStorage);
+    const [quantity, setQuantity] = useState(quantityFromLocalStorage);
+    const [total, setTotal] = useState(totalFromLocalStorage);
 
     const getProductQuantity = () => {
         let qty = 0;
@@ -25,10 +28,13 @@ const CustomProvider = ({children}) => {
     }
 
     useEffect(() => {
+        localStorage.setItem('products', JSON.stringify(products));
+        localStorage.setItem('quantity', JSON.stringify(quantity));
+        localStorage.setItem('total', JSON.stringify(total));
         getProductQuantity();
         getTotal();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [total, products]);
+    }, [total, products, quantity]);
 
     const addProduct = (product) => {
         if(isInCart(product.id)){
