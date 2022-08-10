@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../../assets/logoBrokur.png"
 import CartWidget from './CartWidget'
 import {Link, NavLink, useParams} from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -31,7 +30,7 @@ const NavBar = () => {
         <nav>
             <div className='nav-brand'>
                 <Link to="/">
-                    <img src={logo} alt="Logo Brôkur" />   
+                    <img src="https://i.ibb.co/Bnmyc91/logo-Brokur.png" alt="Logo Brôkur" />   
                 </Link>
                 <Link to='/'><h1>Brôkur</h1></Link>
                 

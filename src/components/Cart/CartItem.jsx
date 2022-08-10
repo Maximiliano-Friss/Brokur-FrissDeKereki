@@ -1,5 +1,3 @@
-import './Cart.css'
-
 const CartItem = ({productTitle, productId, productPrice, productImage, productQuantity, removeFromCart}) => {
     
     const handlerClickRemove = () => {
