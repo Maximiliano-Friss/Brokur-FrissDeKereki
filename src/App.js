@@ -7,8 +7,6 @@ import Cart from './components/Cart/Cart.jsx'
 import UserForm from './components/UserForm/UserForm.jsx'
 import CustomProvider from './context/CartContext.js'
 
-import './App.css';
-
 const App = () => {
     return (
         <BrowserRouter>
