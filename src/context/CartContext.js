@@ -2,9 +2,9 @@ import React, {createContext, useState, useEffect} from "react"
 
 export const contextoCart = createContext();
 const {Provider} = contextoCart;
-const productFromLocalStorage = JSON.parse(localStorage.getItem("products") || '[]')
-const quantityFromLocalStorage = JSON.parse(localStorage.getItem("quantity") || 0)
-const totalFromLocalStorage = JSON.parse(localStorage.getItem("total") || 0)
+const productFromLocalStorage = JSON.parse(localStorage.getItem("products") || '[]');
+const quantityFromLocalStorage = JSON.parse(localStorage.getItem("quantity") || 0);
+const totalFromLocalStorage = JSON.parse(localStorage.getItem("total") || 0);
 
 const CustomProvider = ({children}) => {
     const [products, setProducts] = useState(productFromLocalStorage);
